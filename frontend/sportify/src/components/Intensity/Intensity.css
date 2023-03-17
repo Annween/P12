@@ -1,0 +1,20 @@
+.intensity{
+    background-color: #282D30;
+    color: white;
+   width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.intensity .header-intensity h4{
+text-align: center;
+    padding-top: 5px;
+}
+
+.intensity .radar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

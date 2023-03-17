@@ -13,5 +13,13 @@
   align-items: center;
   height: 100%;
   list-style-type: none;
+  margin-block-start: 0;
 }
+
+.header-background .header-list .header-logo img {
+  height: 60px;
+  width: 180px;
+}
+
+
 
