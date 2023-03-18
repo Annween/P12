@@ -1,0 +1,30 @@
+.score{
+    background-color: #FBFBFB;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+}
+
+.objectif{
+    max-width: min-content;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 110px;
+    z-index: 9999;
+    text-align: center;
+    font-size: 26px;
+}
+
+.objectif h3{
+    color: #282D30;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.objectif p{
+    color: #74798C;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}

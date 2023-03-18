@@ -22,6 +22,16 @@ const Intensity = () => {
 			})
 		return () => mounted = false;
 	},[])
+
+	const frenchNames = {
+		"speed": "Vitesse",
+		"intensity": "Intensité",
+		"energy": "Energie",
+		"strength": "Force",
+		"endurance": "Endurance",
+		"cardio": "Cardio",
+
+	}
 	return (
 		<section className="intensity">
 			<div className="header-intensity">

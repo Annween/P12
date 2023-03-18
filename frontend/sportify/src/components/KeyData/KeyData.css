@@ -1,0 +1,40 @@
+.keyData .container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #FBFBFB;
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+}
+
+.keyData .container .element
+{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.keyData .container .element img
+{
+    width: 60px;
+    height: 60px;
+}
+
+.keyData .container .text h3{
+    color: #282D30;
+    font-weight: 700;
+  font-size: 20px;
+    margin: 10px;
+    padding: 0px;
+}
+
+.keyData .container .text p{
+    color: #74798C;
+    font-weight: 500;
+  font-size: 14px;
+    margin: 10px;
+    padding: 0px;
+}
+

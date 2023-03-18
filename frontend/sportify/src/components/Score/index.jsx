@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {RadialBarChart, RadialBar, Tooltip} from "recharts";
+import { RadialBarChart, RadialBar, Legend } from "recharts";
+import "./Score.css";
+
 
 const Score = () => {
 
@@ -21,20 +23,68 @@ const Score = () => {
 			})
 		return () => mounted = false;
 	},[])
-	return (
-		<RadialBarChart
-			width={730}
-			height={250}
-			innerRadius="10%"
-			outerRadius="80%"
-			data={[{uv : 12}]}
-			startAngle={180}
-			endAngle={0}
-		>
-			<RadialBar minAngle={15} label={{ fill: '#666', position: 'insideStart' }} background clockWise={true} dataKey="uv" />
-			<Tooltip />
-		</RadialBarChart>
-	);
+
+
+
+	const dataArray = [
+
+		{
+			uv: 12,
+			fill: "red"
+		},
+
+		{
+			uv: 100,
+			fill: "transparent"
+		},
+
+
+
+
+
+	];
+
+	const style = {
+		top: 0,
+		left: 350,
+		lineHeight: "24px"
+	};
+
+
+
+		return (
+			<div className="score">
+				<div className="objectif">
+					<h3>12 %</h3><p>de votre objectif</p>
+				</div>
+
+			<RadialBarChart
+				width={500}
+				height={300}
+				cx={150}
+				cy={150}
+				innerRadius={200}
+				outerRadius={50}
+				barSize={10}
+				data={dataArray}
+				startAngle={90}
+
+			>
+				<RadialBar
+					minAngle={15}
+					label={{ position: "insideStart", fill: "white" }}
+					cornerRadius={10}
+					clockWise={true}
+					dataKey="uv"
+
+				/>
+
+			</RadialBarChart>
+
+			</div>
+		);
+
+
 }
 
 export default Score;

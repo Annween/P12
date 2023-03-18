@@ -1,8 +1,24 @@
 .dashboard{
-    margin: 10px 4%;
+    margin: 20px 10%;
+    position: relative;
 }
 h1 .red{
-
     color: red;
+}
 
+.flex{
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.flex-custom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

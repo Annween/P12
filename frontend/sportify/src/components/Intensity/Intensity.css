@@ -1,17 +1,21 @@
-.intensity{
+.intensity {
     background-color: #282D30;
     color: white;
-   width: 300px;
+    width: 300px;
     height: 300px;
     border-radius: 10px;
+    margin-right: 20px;
 }
 
-.intensity .header-intensity h4{
-text-align: center;
+.intensity .header-intensity h4 {
+    text-align: center;
     padding-top: 5px;
+    font-size: 15px;
+    margin: 10px;
+    font-weight: 500;
 }
 
-.intensity .radar{
+.intensity .radar {
     display: flex;
     justify-content: center;
     align-items: center;
