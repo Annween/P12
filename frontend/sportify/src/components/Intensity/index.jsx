@@ -2,11 +2,22 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend} from 'recharts';
 import "./Intensity.css";
+import {getPerformanceData} from "../../services/api";
 
-
+/**
+ * Average intensity of the user
+ *
+ *  @component RadarChart of the average intensity of the user
+ *  @example
+ *  return (
+ *  <Intensity />
+ *  )
+ *
+ **/
 const Intensity = () => {
 
 	const [data, setData] = useState([]);
+
 
 	async function getPerformanceData(id) {
 		return axios.get(`http://localhost:3000/user/${id}/performance`);

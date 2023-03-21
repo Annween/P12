@@ -5,6 +5,14 @@ import ride from "../../images/icon_ride.png";
 import swim from "../../images/icon_swim.png";
 import strength from "../../images/icon_strength.png";
 
+/**
+ * Vertical bar component
+ * @component Display Vertical bar menu
+ * @example
+ * return (
+ * <VerticalBar />
+ */
+
 function VerticalBar() {
 	return (<div className="vertical-bar flex-column">
 		<div className="vertical-bar__item">

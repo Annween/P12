@@ -3,6 +3,15 @@ import axios from "axios";
 import { RadialBarChart, RadialBar, Legend } from "recharts";
 import "./Score.css";
 
+/**
+ * Score component
+ * @component Show the score of the user
+ * @example
+ * return (
+ * <Score />
+ * )
+ */
+
 
 const Score = () => {
 

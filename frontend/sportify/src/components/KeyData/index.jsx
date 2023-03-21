@@ -6,6 +6,15 @@ import fat from "../../images/fat-icon.png";
 import protein from "../../images/protein-icon.png";
 import "./KeyData.css";
 
+/**
+ * KeyData component
+ * @component Show the key data of the user
+ * @example
+ * return (
+ * <KeyData />
+ * )
+ */
+
 
 function KeyData() {
 

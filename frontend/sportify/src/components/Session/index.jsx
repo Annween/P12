@@ -3,6 +3,17 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 import axios from "axios";
 import "./Session.css";
 
+/**
+ * A component that displays the average duration of the user's sessions
+ *
+ *  @component Session component that displays the average duration of the user's sessions
+ *  @example
+ *  return (
+ *  <Session />
+ *  )
+ *
+ **/
+
 const Session = () => {
 
 	const [data, setData] = useState([]);
@@ -10,6 +21,7 @@ const Session = () => {
 	async function getUserData(id) {
 		return axios.get(`http://localhost:3000/user/${id}/average-sessions`);
 	}
+
 
 	useEffect(() => {
 		let mounted = true;

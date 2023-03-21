@@ -5,6 +5,15 @@ import oval_red from "../../images/oval_red.png";
 import oval_black from "../../images/oval_black.png";
 import "./Activity.css";
 
+/**
+ * Activity component
+ * @component Show the activity of the user
+ * @example
+ * return (
+ * <Activity />
+ * )
+ */
+
 
 const Activity = () => {
   const [data, setData] = useState([]);
@@ -24,6 +33,19 @@ const Activity = () => {
 		return () => mounted = false;
 	},[])
 
+	const CustomTooltip = ({ payload }) => {
+	  if (payload && payload.length) {
+		  return (
+	      <div className="custom-tooltip">
+	        <p className="label">{`Poids: ${payload[0].value} kg`}</p>
+	        <p className="label">{`Calories: ${payload[1].value} kCal`}</p>
+	      </div>
+	    );
+	  }
+
+	}
+
+
 
    return <section className="activity">
 	   <div className="header-activity">
@@ -39,10 +61,11 @@ const Activity = () => {
 	<BarChart width={730} height={250} data={data && data.map((el, i) => {
       return {day: i, kilogram: el.kilogram, calories: el.calories}
    })}>
+
 		<CartesianGrid strokeDasharray="3 3" />
    <XAxis dataKey="day" />
    <YAxis dataKey="kilogram" domain={[69, 'auto']} orientation={"right"}/>
-   <Tooltip />
+   <Tooltip content={<CustomTooltip />}/>
    <Bar radius={[20, 20, 0, 0]} maxBarSize={10} dataKey="kilogram" fill="#000000" />
    <Bar radius={[20, 20, 0, 0]} maxBarSize={10} dataKey="calories" fill="#E60000" />
  </BarChart>

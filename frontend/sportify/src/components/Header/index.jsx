@@ -2,6 +2,14 @@ import React from "react";
 import  "./Header.css";
 import logo from "../../logo.png";
 
+/**
+ * Header of the application
+ * @component Header
+ * @example
+ * return (
+ * <Header />
+ * )
+ **/
 
 function Header() {
   return (
