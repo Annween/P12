@@ -5,6 +5,7 @@ import carbs from "../../images/carbs-icon.png";
 import fat from "../../images/fat-icon.png";
 import protein from "../../images/protein-icon.png";
 import "./KeyData.css";
+import ApiFormatter from "../../utils/index";
 
 /**
  * KeyData component
@@ -20,16 +21,14 @@ function KeyData() {
 
 	const [keyData, setData] = useState([]);
 
-	async function getUserData(id) {
-		return axios.get(`http://localhost:3000/user/${id}`);
-	}
+	const dataFormatter = new ApiFormatter();
 
 	useEffect(() => {
 		let mounted = true;
-		getUserData(12)
+		dataFormatter.getFormattedUserData(12)
 			.then(data => {
 				if (mounted) {
-					setData(data?.data?.data.keyData);
+					setData(data.keyData);
 				}
 			})
 		return () => mounted = false;

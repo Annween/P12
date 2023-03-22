@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
-import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend} from 'recharts';
+import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis} from 'recharts';
 import "./Intensity.css";
-import {getPerformanceData} from "../../services/api";
+import ApiFormatter from "../../utils/index";
+import PropTypes from "prop-types";
 
 /**
  * Average intensity of the user
@@ -18,10 +18,7 @@ const Intensity = () => {
 
 	const [data, setData] = useState([]);
 
-
-	async function getPerformanceData(id) {
-		return axios.get(`http://localhost:3000/user/${id}/performance`);
-	}
+	const dataFormatter = new ApiFormatter();
 
 	useEffect(() => {
 		let mounted = true;
@@ -34,15 +31,6 @@ const Intensity = () => {
 		return () => mounted = false;
 	},[])
 
-	const frenchNames = {
-		"speed": "Vitesse",
-		"intensity": "Intensité",
-		"energy": "Energie",
-		"strength": "Force",
-		"endurance": "Endurance",
-		"cardio": "Cardio",
-
-	}
 	return (
 		<section className="intensity">
 			<div className="header-intensity">

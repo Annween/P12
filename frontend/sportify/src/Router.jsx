@@ -9,6 +9,7 @@ function Router() {
   <Header/>
       <VerticalBar/>
         <Routes>
+            <Route path="/dashboard/:id" element={<Dashboard/>} />
         <Route path="/" element={<Dashboard/>} />
       </Routes>
    </BrowserRouter>;

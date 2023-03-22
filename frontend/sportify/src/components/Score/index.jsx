@@ -17,21 +17,18 @@ const Score = () => {
 
 	const [data, setData] = useState([]);
 
-	async function getScoreData(id) {
-		return axios.get(`http://localhost:3000/user/${id}`);
-	}
+	const dataFormatter = new ApiFormatter();
 
 	useEffect(() => {
 		let mounted = true;
-		getScoreData(12)
+		dataFormatter.getFormattedScoreData(props.userId)
 			.then(data => {
 				if (mounted) {
-					setData(data?.data?.data);
-
+					setScoreValue(data);
 				}
 			})
 		return () => mounted = false;
-	},[])
+	}, [])
 
 
 
@@ -46,10 +43,6 @@ const Score = () => {
 			uv: 100,
 			fill: "transparent"
 		},
-
-
-
-
 
 	];
 
@@ -94,6 +87,10 @@ const Score = () => {
 		);
 
 
+}
+
+Score.propTypes = {
+	userId: PropTypes.number.isRequired
 }
 
 export default Score;

@@ -6,25 +6,26 @@ import Score from "../../components/Score";
 import axios from "axios";
 import "./dashboard.css";
 import KeyData from "../../components/KeyData";
+import {useParams} from "react-router-dom";
+import ApiFormatter from "../../utils/index";
+
 
 function Dashboard() {
 
 	const [data, setData] = useState([]);
 
-	async function getUserData(id) {
-		return axios.get(`http://localhost:3000/user/${id}`);
-	}
+	const dataFormatter = new ApiFormatter();
 
 	useEffect(() => {
 		let mounted = true;
 		getUserData(12)
 			.then(data => {
 				if (mounted) {
-					setData(data?.data?.data.userInfos);
+					setData(data.userInfos);
 				}
 			})
 		return () => mounted = false;
-	}, [])
+	}, [], id)
 
 
 	return <section className={"dashboard"}>
