@@ -1,5 +1,5 @@
 import React from "react";
-import  "./Header.css";
+import "./Header.css";
 import logo from "../../logo.png";
 
 /**
@@ -12,21 +12,22 @@ import logo from "../../logo.png";
  **/
 
 function Header() {
-  return (
-    <nav className="header-background">
-      <ul className="header-list">
-        <li className="header-logo"><img src={logo} /></li>
-        <li>Accueil</li>
-        <li>Profil</li>
-        <li>Réglage</li>
-        <li>Communauté</li>
-        </ul>
-    </nav>
+	return (
+		<nav className="header-background">
+			<div className="header-logo">
+				<img src={logo} alt={"logo"}/>
+			</div>
+			<ul className="header-list">
+				<li>Accueil</li>
+				<li>Profil</li>
+				<li>Réglage</li>
+				<li>Communauté</li>
+			</ul>
+		</nav>
 
 
-  );
+	);
 }
-
 
 
 export default Header;

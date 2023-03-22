@@ -45,6 +45,15 @@ export default class ApiFormatter {
 	}
 
 	__formatIntensityData(data) {
+		//French translation
+		data.kind = {
+			1: 'Cardio',
+			2: 'Energie',
+			3: 'Endurance',
+			4: 'Force',
+			5: 'Vitesse',
+			6: 'Intensité'
+		}
 		return data.data.map((el, i) => {
 			return {subject : data.kind[el.kind], value: el.value}
 		})

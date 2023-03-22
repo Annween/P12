@@ -30,3 +30,17 @@
     color: #74798C;
 }
 
+.activity-tooltip{
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
+.activity-tooltip p{
+    font-size: 15px;
+    padding: 10px;
+}
+
+[role=dialog]{
+    outline: none;
+}
+

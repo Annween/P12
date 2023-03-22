@@ -34,9 +34,9 @@ const Activity = (props) => {
 	const CustomTooltip = ({ active, payload }) => {
 		if (active && payload && payload.length) {
 			return (
-				<div className="custom-tooltip">
+				<div className="activity-tooltip">
 					<p className="label">{`${payload[0].value}`}kg</p>
-					<p className="label">{`${payload[1].value}`}kCal</p>
+					<p className="label">{`${payload[1].value}`}Kcal</p>
 				</div>
 			);
 		}

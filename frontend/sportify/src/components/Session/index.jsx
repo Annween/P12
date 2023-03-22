@@ -33,6 +33,18 @@ const Session = (props) => {
 		return () => mounted = false;
 	},[])
 
+	const CustomTooltip = ({ active, payload, label }) => {
+		if (active) {
+		  return (
+			<div className="session-tooltip">
+			  <p className="label">{`${payload[0].value} min`}</p>
+			</div>
+		  );
+		}
+
+		return null;
+	}
+
 
 
   return (
@@ -40,9 +52,9 @@ const Session = (props) => {
 		  <div className="header-session">
 		  <h4 className="session-title">Durée moyenne des sessions</h4>
 		  </div>
-	  <LineChart width={300} height={300}  data={data} style={{background: "#FF0000", borderRadius: "10px"}}  margin={{top: 5, bottom: 5}} >
-		  <XAxis dataKey="day" axisLine={false} tick={{fill : "white", fontFamily: "Roboto, sans-serif", opacity: "0.5"}} tickLine={false}/>
-		  <Tooltip />
+	  <LineChart width={300} height={300}  data={data} style={{background: "#FF0000", borderRadius: "10px"}}  margin={{top: 5, bottom: 5, left: 10, right: 10}} >
+		  <XAxis dataKey="day" axisLine={false} tick={{fill : "white", fontFamily: "Roboto, sans-serif", opacity: "0.5"}}  tickLine={false}/>
+		  <Tooltip cursor={false} content={< CustomTooltip />} />
 		  <Line type="monotone" dataKey="length" stroke="#FFFFFF" strokeWidth={2.5} style={{opacity: "0.5"}} />
 	  </LineChart>
 	  </div>
