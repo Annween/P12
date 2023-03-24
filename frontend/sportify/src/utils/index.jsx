@@ -2,37 +2,62 @@
  * Class for data processing
  **/
 
+
 import {getSessions, getPerformance, getActivities, getUserData} from "../services/api";
 
 
 export default class ApiFormatter {
 
 	async getFormattedSessionData(userId) {
-		const data = await getSessions(userId);
-		return this.__formatSessionData(data);
+		try{
+			const data = await getSessions(userId);
+			console.log(data);
+			return this.__formatSessionData(data);
+		}catch (e) {
+			throw e
+		}
 	}
 
 	async getFormattedActivityData(userId) {
-		const data = await getActivities(userId);
-		return this.__formatActivityData(data);
+		try {
+			const data = await getActivities(userId);
+			return this.__formatActivityData(data);
+		} catch (e) {
+			throw e
+		}
 	}
 
 	async getFormattedIntensityData(userId) {
-		const data = await getPerformance(userId);
-		return this.__formatIntensityData(data);
+		try{
+			const data = await getPerformance(userId);
+			return this.__formatIntensityData(data);
+		} catch (e) {
+			throw e
+		}
 	}
 
 	async getFormattedScoreData(userId) {
-		const data = await getUserData(userId);
-		return this.__formatScoreData(data);
+		try {
+			const data = await getUserData(userId);
+			return this.__formatScoreData(data);
+		}catch (e) {
+			throw e
+		}
+
 	}
 
 	async getFormattedUserData(userId) {
-		return getUserData(userId);
+		try{
+			return getUserData(userId);
+		}catch (e) {
+			throw e
+		}
 	}
 
 	__formatSessionData(data) {
+
 		const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+
 		return  data.map((el, i) => {
 			return {name: i, day: days[el.day - 1], length: el.sessionLength}
 		})
@@ -40,6 +65,7 @@ export default class ApiFormatter {
 
 	__formatActivityData(data) {
 		return data.map((el, i) => {
+			i++;
 			return {day: i, kilogram: el.kilogram, calories: el.calories}
 		})
 	}

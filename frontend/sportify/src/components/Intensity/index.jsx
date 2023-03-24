@@ -17,6 +17,7 @@ import PropTypes from "prop-types";
 const Intensity = (props) => {
 
 	const [data, setData] = useState([]);
+	const [error, setError] = useState(null);
 
 	const dataFormatter = new ApiFormatter();
 
@@ -27,15 +28,17 @@ const Intensity = (props) => {
 				if (mounted) {
 					setData(data);
 				}
-			})
+			}).catch(error => {
+			setError(error)
+		})
 		return () => mounted = false;
 	},[])
 
 	return (
-		<section className="intensity">cla
+		<section className="intensity">
 			<div className="radar">
 		<RadarChart outerRadius={window.innerWidth > 1340 ? "70%" : "60%"} width={400} height={250} data={data}>
-			<PolarGrid />
+			<PolarGrid radialLines={false} />
 			<PolarAngleAxis dataKey="subject"  tick={{fill: "white", fontSize: 14}} />
 			<PolarRadiusAxis tick={false} axisLine={false}  angle={30} domain={[0, 150]} />
 			<Radar name="subject" dataKey="value" stroke="#FF0000" fill="#FF0000" fillOpacity={0.8} />

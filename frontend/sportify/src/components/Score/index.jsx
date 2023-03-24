@@ -17,6 +17,7 @@ import PropTypes from "prop-types";
 const Score = (props) => {
 
 	const [scoreValue, setScoreValue] = useState(0);
+	const [error, setError] = useState(null);
 
 	const dataFormatter = new ApiFormatter();
 
@@ -27,7 +28,9 @@ const Score = (props) => {
 				if (mounted) {
 					setScoreValue(data);
 				}
-			})
+			}).catch(error => {
+			setError(error)
+		})
 		return () => mounted = false;
 	}, [])
 
