@@ -27,7 +27,7 @@ To install the project, please follow the steps below:
 2. Open a terminal in the root directory of the project
 3. Go to the backend directory with the command `cd backend`
 4. Install the dependencies with the command `yarn install`
-5. Run the backend with the command `yarn start`
+5. Run the backend with the command `yarn dev`
 
 #### Launch Backend on port 3000 
 
