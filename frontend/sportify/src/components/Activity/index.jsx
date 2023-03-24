@@ -4,6 +4,8 @@ import axios from "axios";
 import oval_red from "../../images/oval_red.png";
 import oval_black from "../../images/oval_black.png";
 import "./Activity.css";
+import ApiFormatter from "../../utils/index";
+import PropTypes from "prop-types";
 
 /**
  * Activity component
@@ -55,9 +57,7 @@ const Activity = (props) => {
 				<li className="grey">Calories brûlées (kCal)</li>
 			</ul>
 		</div>
-		<BarChart width={730} height={250} data={data && data.map((el, i) => {
-			return {day: i, kilogram: el.kilogram, calories: el.calories}
-		})}>
+		<BarChart width={730} height={250} data={data}>
 			<CartesianGrid vertical={false} strokeDasharray="3"/>
 			<XAxis dataKey="day" tickLine={false} style={{fontSize: "14px", color: "#9B9EAC", stroke: "#9B9EAC"}}/>
 			<YAxis dataKey="kilogram" yAxisId="right" domain={['dataMin', 'dataMax']} orientation={"right"} tickLine={false}  style={{fontSize: "14px", color: "#9B9EAC", stroke: "none"}} />
@@ -69,5 +69,8 @@ const Activity = (props) => {
 	</section>
 }
 
+Activity.propTypes = {
+	userId: PropTypes.number.isRequired
+}
 
 export default Activity;

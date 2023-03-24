@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import axios from "axios";
+import { LineChart, Line, XAxis, Tooltip} from 'recharts';
 import "./Session.css";
 import ApiFormatter from "../../utils/index";
 import PropTypes from "prop-types";

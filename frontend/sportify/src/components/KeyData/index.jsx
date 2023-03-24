@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 import calories from "../../images/calories-icon.png";
 import carbs from "../../images/carbs-icon.png";
 import fat from "../../images/fat-icon.png";

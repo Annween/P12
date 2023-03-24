@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
  *  )
  *
  **/
-const Intensity = () => {
+const Intensity = (props) => {
 
 	const [data, setData] = useState([]);
 
@@ -22,22 +22,19 @@ const Intensity = () => {
 
 	useEffect(() => {
 		let mounted = true;
-		getPerformanceData(12)
+		dataFormatter.getFormattedIntensityData(props.userId)
 			.then(data => {
 				if (mounted) {
-					setData(data?.data?.data);
+					setData(data);
 				}
 			})
 		return () => mounted = false;
 	},[])
 
 	return (
-		<section className="intensity">
-			<div className="header-intensity">
-			<h4>Intensité</h4>
-			</div>
+		<section className="intensity">cla
 			<div className="radar">
-		<RadarChart outerRadius={window.innerWidth > 1340 ? "70%" : "60%"} width={400} height={250}  data={data.data && data.data.map((el, i) => {return{ subject : data.kind[el.kind], value: el.value}})}>
+		<RadarChart outerRadius={window.innerWidth > 1340 ? "70%" : "60%"} width={400} height={250} data={data}>
 			<PolarGrid />
 			<PolarAngleAxis dataKey="subject"  tick={{fill: "white", fontSize: 14}} />
 			<PolarRadiusAxis tick={false} axisLine={false}  angle={30} domain={[0, 150]} />
@@ -46,6 +43,10 @@ const Intensity = () => {
 			</div>
 		</section>
 	);
+}
+
+Intensity.propTypes = {
+	userId: PropTypes.number.isRequired
 }
 
 export default Intensity;

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
-import { RadialBarChart, RadialBar, Legend } from "recharts";
+import { RadialBarChart, RadialBar } from "recharts";
 import "./Score.css";
+import ApiFormatter from "../../utils/index";
+import PropTypes from "prop-types";
 
 /**
  * Score component
@@ -13,9 +14,9 @@ import "./Score.css";
  */
 
 
-const Score = () => {
+const Score = (props) => {
 
-	const [data, setData] = useState([]);
+	const [scoreValue, setScoreValue] = useState(0);
 
 	const dataFormatter = new ApiFormatter();
 
@@ -30,15 +31,11 @@ const Score = () => {
 		return () => mounted = false;
 	}, [])
 
-
-
-	const dataArray = [
-
+	const data = [
 		{
-			uv: 12,
+			uv: scoreValue,
 			fill: "red"
 		},
-
 		{
 			uv: 100,
 			fill: "transparent"
@@ -57,7 +54,7 @@ const Score = () => {
 		return (
 			<div className="score">
 				<div className="objectif">
-					<h3>12 %</h3><p>de votre objectif</p>
+					<h3>{scoreValue} %</h3><p>de votre objectif</p>
 				</div>
 
 			<RadialBarChart
@@ -68,7 +65,7 @@ const Score = () => {
 				innerRadius={200}
 				outerRadius={50}
 				barSize={10}
-				data={dataArray}
+				data={data}
 				startAngle={90}
 
 			>

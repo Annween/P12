@@ -3,7 +3,6 @@ import Activity from "../../components/Activity";
 import Session from "../../components/Session";
 import Intensity from "../../components/Intensity";
 import Score from "../../components/Score";
-import axios from "axios";
 import "./dashboard.css";
 import KeyData from "../../components/KeyData";
 import {useParams} from "react-router-dom";
@@ -12,13 +11,16 @@ import ApiFormatter from "../../utils/index";
 
 function Dashboard() {
 
+	const { id } = useParams();
+
 	const [data, setData] = useState([]);
+	const [userId, setUserId] = useState(parseInt(id));
 
 	const dataFormatter = new ApiFormatter();
 
 	useEffect(() => {
 		let mounted = true;
-		getUserData(12)
+		dataFormatter.getFormattedUserData(id)
 			.then(data => {
 				if (mounted) {
 					setData(data.userInfos);
@@ -34,12 +36,12 @@ function Dashboard() {
 		<div className="flex">
 			<div className="flex-column">
 				<div>
-					<Activity/>
+					<Activity userId={userId}/>
 				</div>
 				<div className="flex-custom">
-					<Session/>
-					<Intensity/>
-					<Score/>
+					<Session userId={userId}/>
+					<Intensity userId={userId}/>
+					<Score userId={userId}/>
 				</div>
 			</div>
 			<div>
