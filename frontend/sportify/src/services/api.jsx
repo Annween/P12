@@ -1,4 +1,5 @@
 import axios from "axios";
+import {useParams} from "react-router-dom";
 
 /**
  * Get data from the API

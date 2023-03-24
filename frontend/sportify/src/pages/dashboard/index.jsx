@@ -43,7 +43,7 @@ function Dashboard() {
 				</div>
 			</div>
 			<div>
-				<KeyData/>
+				<KeyData userId={userId}/>
 			</div>
 		</div>
 

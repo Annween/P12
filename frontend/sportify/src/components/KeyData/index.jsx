@@ -17,7 +17,7 @@ import ApiFormatter from "../../utils/index";
  */
 
 
-function KeyData() {
+const KeyData = (props) => {
 
 	const [keyData, setData] = useState([]);
 
@@ -25,7 +25,7 @@ function KeyData() {
 
 	useEffect(() => {
 		let mounted = true;
-		dataFormatter.getFormattedUserData(12)
+		dataFormatter.getFormattedUserData(props.userId)
 			.then(data => {
 				if (mounted) {
 					setData(data.keyData);
