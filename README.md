@@ -39,6 +39,6 @@ To install the project, please follow the steps below:
 
 #### Launch FrontEnd on port 3001  
 
-Front-End is now rendered at URL `http://localhost:3000` and the backend is running at `http://localhost:3001`
+Front-End is now rendered at URL `http://localhost:3001` and the backend is running at `http://localhost:3000`
 
 
