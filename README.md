@@ -22,20 +22,22 @@ Before you can install and run this project, you must have the following install
 ## Installation and launch
 To install the project, please follow the steps below:
 
-1. Clone the repository to your computer
+###### Clone the repository to your computer
+
 ### Launch Backend
-2. Open a terminal in the root directory of the project
-3. Go to the backend directory with the command `cd backend`
-4. Install the dependencies with the command `yarn install`
-5. Run the backend with the command `yarn dev`
+
+1. Open a terminal in the root directory of the project
+2. Go to the backend directory with the command `cd backend`
+3. Install the dependencies with the command `yarn install`
+4. Run the backend with the command `yarn dev`
 
 #### Launch Backend on port 3000 
 
 ### Launch Frontend
-6. Open a new terminal in the root directory of the project
-7. Go to the frontend directory with the command `cd frontend/sportify`
-8. Install the dependencies with the command `npm install`
-9.Launch the frontend with the command `npm start` or `yarn start`
+1. Open a new terminal in the root directory of the project
+2. Go to the frontend directory with the command `cd frontend/sportify`
+3. Install the dependencies with the command `npm install`
+4. Launch the frontend with the command `npm start` or `yarn start`
 
 #### Launch FrontEnd on port 3001  
 
