@@ -18,11 +18,10 @@ Before you can install and run this project, you must have the following install
 - Prop-types (version 15 or higher)
 
 
-
 ## Installation and launch
 To install the project, please follow the steps below:
 
-###### Clone the repository to your computer
+### Clone the repository to your computer
 
 ### Launch Backend
 
@@ -42,7 +41,7 @@ To install the project, please follow the steps below:
 Go to URL `http://localhost:3001/dashboard/{userId}`
 
 
-##### Use Mock Data
+### Use Mock Data
 Go to the `frontend/sportify/src/utils` directory and open the `index.jsx` file. Change the import path from : `import {getSessions, getPerformance, getActivities, getUserData} from "../services/api";` to `import {getSessions, getPerformance, getActivities, getUserData} from "../services/mock";`
 
 #### Launch FrontEnd on port 3001  
