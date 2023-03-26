@@ -6,10 +6,12 @@
 }
 
 .objectif{
-    max-width: min-content;
+    max-width: 10%;
     position: absolute;
-    margin-top: 80px;
-    margin-left: 110px;
+    margin-top: 85px;
+    margin-left: 75px;
+    display: flex;
+    flex-direction: column;
     z-index: 9999;
     text-align: center;
     font-size: 26px;
@@ -28,3 +30,17 @@
     margin: 0;
     padding: 0;
 }
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .objectif{
+        margin-top: 80px;
+        margin-left: 85px;
+    }
+
+    .objectif h3{
+        font-size: 22px;
+    }
+
+}
+
+

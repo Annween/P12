@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { RadialBarChart, RadialBar } from "recharts";
+import {RadialBarChart, RadialBar} from "recharts";
 import "./Score.css";
 import ApiFormatter from "../../utils/index";
 import PropTypes from "prop-types";
@@ -7,14 +7,12 @@ import PropTypes from "prop-types";
 /**
  * Score component
  * @component Show the score of the user
- * @example
- * return (
- * <Score />
- * )
+ * @param {number} userId
+ * @returns {JSX.Element}
  */
 
 
-const Score = (props) => {
+const Score = ({userId}) => {
 
 	const [scoreValue, setScoreValue] = useState(0);
 	const [error, setError] = useState(null);
@@ -23,7 +21,7 @@ const Score = (props) => {
 
 	useEffect(() => {
 		let mounted = true;
-		dataFormatter.getFormattedScoreData(props.userId)
+		dataFormatter.getFormattedScoreData(userId)
 			.then(data => {
 				if (mounted) {
 					setScoreValue(data);
@@ -52,41 +50,44 @@ const Score = (props) => {
 		lineHeight: "24px"
 	};
 
+	const DataError = () => {
+		if (error) {
+			return <p className="error">Une erreur est survenue: impossible de charger les données</p>
+		}
+		return null
+	}
 
-
-		return (
-			<div className="score">
-				<div className="objectif">
-					<h3>{scoreValue} %</h3><p>de votre objectif</p>
-				</div>
-
-			<RadialBarChart
-				width={500}
-				height={300}
-				cx={150}
-				cy={150}
-				innerRadius={200}
-				outerRadius={50}
-				barSize={10}
-				data={data}
-				startAngle={90}
-
-			>
-				<RadialBar
-					minAngle={15}
-					label={{ position: "insideStart", fill: "white" }}
-					cornerRadius={10}
-					clockWise={true}
-					dataKey="uv"
-
-				/>
-
-			</RadialBarChart>
-
+	return (
+		<div className="score">
+			<DataError/>
+			{!error && <>
+			<div className="objectif">
+				<h3>{scoreValue} %</h3><p>de votre objectif</p>
 			</div>
-		);
+				<RadialBarChart
+					width={500}
+					height={300}
+					cx={150}
+					cy={150}
+					innerRadius={200}
+					outerRadius={50}
+					barSize={10}
+					data={data}
+					startAngle={90}
+				>
+					<RadialBar
+						minAngle={15}
+						label={{position: "insideStart", fill: "white"}}
+						cornerRadius={10}
+						clockWise={true}
+						dataKey="uv"
 
+					/>
 
+				</RadialBarChart>
+			</> }
+		</div>
+	);
 }
 
 Score.propTypes = {

@@ -7,15 +7,16 @@ import PropTypes from "prop-types";
 /**
  * A component that displays the average duration of the user's sessions
  *
- *  @component Session component that displays the average duration of the user's sessions
- *  @example
- *  return (
- *  <Session />
- *  )
+ * @component Session component that displays the average duration of the user's sessions
+ * @param {number} userId
+ * @returns {JSX.Element}
  *
  **/
 
-const Session = (props) => {
+const Session = ({userId}) => {
+
+	//use destructuring to get the data and the error
+
 
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ const Session = (props) => {
 
 	useEffect(() => {
 		let mounted = true;
-		dataFormatter.getFormattedSessionData(props.userId)
+		dataFormatter.getFormattedSessionData(userId)
 			.then(data => {
 				if (mounted) {
 					setData(data);

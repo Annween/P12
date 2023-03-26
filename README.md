@@ -39,8 +39,14 @@ To install the project, please follow the steps below:
 3. Install the dependencies with the command `npm install`
 4. Launch the frontend with the command `npm start` or `yarn start`
 
+Go to URL `http://localhost:3001/dashboard/{userId}`
+
+
+##### Use Mock Data
+Go to the `frontend/sportify/src/utils` directory and open the `index.jsx` file. Change the import path from : `import {getSessions, getPerformance, getActivities, getUserData} from "../services/api";` to `import {getSessions, getPerformance, getActivities, getUserData} from "../services/mock";`
+
 #### Launch FrontEnd on port 3001  
 
-Front-End is now rendered at URL `http://localhost:3001` and the backend is running at `http://localhost:3000`
+Front-End is now rendered at URL `http://localhost:3001/dashboard/{userId}` and the backend is running at `http://localhost:3000`
 
 

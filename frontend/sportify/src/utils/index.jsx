@@ -11,7 +11,6 @@ export default class ApiFormatter {
 	async getFormattedSessionData(userId) {
 		try{
 			const data = await getSessions(userId);
-			console.log(data);
 			return this.__formatSessionData(data);
 		}catch (e) {
 			throw e

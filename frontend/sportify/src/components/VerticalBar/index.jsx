@@ -9,8 +9,7 @@ import strength from "../../images/icon_strength.png";
  * Vertical bar component
  * @component Display Vertical bar menu
  * @example
- * return (
- * <VerticalBar />
+ * @returns {JSX.Element}
  */
 
 function VerticalBar() {

@@ -1,5 +1,3 @@
-
-
 /**
  * Get data from the API
  * @param userId
@@ -39,9 +37,8 @@ export async function getUserData(userId) {
 			}
 		}
 	];
-
+	 console.log(data.find((user) => user.id === userId));
 	return data.find((user) => user.id === userId);
-
 }
 
 export async function getActivities(userId) {

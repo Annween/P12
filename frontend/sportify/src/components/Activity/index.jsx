@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
-import axios from "axios";
 import oval_red from "../../images/oval_red.png";
 import oval_black from "../../images/oval_black.png";
 import "./Activity.css";
@@ -10,14 +9,12 @@ import PropTypes from "prop-types";
 /**
  * Activity component
  * @component Show the activity of the user
- * @example
- * return (
- * <Activity />
- * )
+ * @param {number} userId
+ * @returns {JSX.Element}
  */
 
 
-const Activity = (props) => {
+const Activity = ({userId}) => {
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(null);
 
@@ -25,7 +22,7 @@ const Activity = (props) => {
 
 	useEffect(() => {
 		let mounted = true;
-		dataFormatter.getFormattedActivityData(props.userId)
+		dataFormatter.getFormattedActivityData(userId)
 			.then(data => {
 				if (mounted) {
 					setData(data);
@@ -75,7 +72,7 @@ const Activity = (props) => {
 			<BarChart width={730} height={250} data={data}>
 				<CartesianGrid vertical={false} strokeDasharray="3"/>
 				<XAxis dataKey="day" tickLine={false} style={{fontSize: "14px", color: "#9B9EAC", stroke: "#9B9EAC"}}/>
-				<YAxis dataKey="kilogram" yAxisId="right" domain={[69, 'auto']} orientation={"right"}
+				<YAxis dataKey="kilogram" yAxisId="right" domain={['dataMin - 5', 'auto']} orientation={"right"}
 				       tickLine={false} style={{fontSize: "14px", color: "#9B9EAC", stroke: "none"}}/>
 				<YAxis dataKey="calories" yAxisId="left"  domain={[0, 'dataMax + 10']}  orientation={"left"}
 				       hide={true}/>

@@ -8,11 +8,16 @@ import KeyData from "../../components/KeyData";
 import {useParams} from "react-router-dom";
 import ApiFormatter from "../../utils/index";
 
+/** Dashboard page
+ *
+ * @return {JSX.Element}
+ * @constructor
+ */
+
 
 function Dashboard() {
 
 	const { id } = useParams();
-
 	const [data, setData] = useState([]);
 	const [userId, setUserId] = useState(parseInt(id));
 
@@ -20,14 +25,14 @@ function Dashboard() {
 
 	useEffect(() => {
 		let mounted = true;
-		dataFormatter.getFormattedUserData(id)
+		dataFormatter.getFormattedUserData(userId)
 			.then(data => {
 				if (mounted) {
 					setData(data.userInfos);
 				}
 			})
 		return () => mounted = false;
-	}, [], id)
+	}, [id])
 
 
 	return <section className={"dashboard"}>
@@ -48,7 +53,6 @@ function Dashboard() {
 				<KeyData userId={userId}/>
 			</div>
 		</div>
-
 	</section>
 }
 

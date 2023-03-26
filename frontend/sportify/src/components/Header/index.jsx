@@ -6,9 +6,7 @@ import logo from "../../logo.png";
  * Header of the application
  * @component Header
  * @example
- * return (
- * <Header />
- * )
+ * @returns {JSX.Element}
  **/
 
 function Header() {
